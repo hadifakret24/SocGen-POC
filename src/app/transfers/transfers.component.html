@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="form" novalidate>
+
+      <div class="form-group">
+        <label>Select Account Emitter</label>
+        <select class="form-control" id="emitter" formControlName="emitter">
+          <option *ngFor="let account of accountsList.accounts" [value]="account.accountnumber">
+            {{account.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Select Account Receiver</label>
+        <select class="form-control" id="receiver" formControlName="receiver">
+          <option *ngFor="let account of accountsList.accounts" [value]="account.accountnumber">
+            {{account.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Amount </label>
+        <input type="text" class="form-control" formControlName="amount" />
+      </div>
+      <div *ngIf="form.controls['amount'].invalid && (form.controls['amount'].dirty
+      || form.controls['amount'].touched)" class="alert alert-danger">
+        <div *ngIf="form.controls['amount'].errors.required">
+          Amount is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+
+
+       <button (click)="fundsTransfers()"
+                [disabled]="form.pristine || form.invalid"
+                class="btn btn-primary">Submit</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <td>date</td>
+    <td>Account Transmitter</td>
+    <td>Account Receiver</td>
+    <td>Amount</td>
+    <td>Balance</td>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let transfer of transfers">
+    <td>{{ transfer.date }}</td>
+    <td>{{ transfer.accountTransmitter.name }}</td>
+    <td>{{ transfer.accountReceiver.name }}</td>
+    <td>{{ transfer.amount }}</td>
+    <td>{{ transfer.myBalance }}</td>
+
+  </tr>
+  </tbody>
+</table>
